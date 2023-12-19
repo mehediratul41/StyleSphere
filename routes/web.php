@@ -30,7 +30,7 @@ Route::get('/', function () {
 });
 
 //Users Routes
-Route::get('/user',[UserController::class,'view']);
+Route::get('/users',[UserController::class,'view']);
 
 //Categories Routes
 Route::get('/categories',[CategoryController::class,'view']);
@@ -67,3 +67,14 @@ Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name(
 Route::get('register', [CustomAuthController::class, 'registration'])->name('register');
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+
+
+//The testing routes are here
+
+Route::get('/home', function () {
+    return view('home');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});

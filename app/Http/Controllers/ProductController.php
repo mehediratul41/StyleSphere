@@ -15,6 +15,6 @@ class ProductController extends Controller
         // echo "<pre>";
         // print_r($data);
         // die;
-        return view('product')->with($data);
+        return view('products')->with($data);
     }
 }
