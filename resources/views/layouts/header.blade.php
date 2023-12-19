@@ -48,11 +48,22 @@
                       <li class="nav-item">
                         <a class="nav-link " aria-current="page" href="{{url('/about')}}">About</a>
                       </li>
+                      <li class="nav-item">
+                      <div class="cart-icon svg-mb">
+                        <a href="{{url('/')}}" title="Cart Icon" data-cart-toggle="">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-check" viewBox="0 0 16 16">
+                            <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                          </svg>
+                        </a>
+                      </div>
+                      </li>
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Profile
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="#">view</a></li>
                           <li><a class="dropdown-item" href="#">Edit</a></li>
                           <li><a class="dropdown-item" href="#">Orders</a></li>
                           <li><hr class="dropdown-divider"></li>

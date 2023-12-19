@@ -37,6 +37,7 @@ Route::get('/categories',[CategoryController::class,'view']);
 
 //Products Routes
 Route::get('/products',[ProductController::class,'view']);
+Route::get('/products/{id}',[ProductController::class,'view_product']);
 
 //Orders Route
 
