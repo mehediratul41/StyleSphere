@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Category;
 use App\Models\Product;
+
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -10,12 +12,10 @@ class ProductController extends Controller
 
     public function view()
     {
-        $products = Product::paginate('5');
+        $products = Product::with('category')->paginate(5);
         $data = compact('products');
-        // echo "<pre>";
-        // print_r($data);
-        // die;
         return view('products')->with($data);
+
     }
     
     //function to view the sigle product
@@ -25,7 +25,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         // echo "<pre>";
         // print_r($product);
-   
+           
 
         $featured = Product::orderByDesc('name')->take(10)->get();
         
@@ -37,5 +37,12 @@ class ProductController extends Controller
         return view('product')->with($data);
         // return view('product')->with(['data' => $data, 'featured' => $featured]);
 
+    }
+    public function test($name)
+    {
+        $category = Category::where('name','name');
+        $data = compact('category');
+        echo "<pre>";
+        print_r($data);
     }
 }

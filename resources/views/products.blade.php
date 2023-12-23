@@ -22,7 +22,7 @@
                       <div class="card-body">
                         <h5 class="card-title">{{$product->name}} </h5>
                         <h5> Price : <button class="btn btn-success">BDT: {{$product->price}}</button></h5>
-                        <h5>Category : <button class="btn btn-primary">{{$product->category_id}}</button> </h5>
+                        <a href="{{url('/categories')}}/{{$product->category->name }}"><h5>Category : <button class="btn btn-primary">{{$product->category->name}}</button> </h5></a>
                         <h5>Stock Quantity : <button class="btn btn-danger">{{$product->stock_quantity}}</button> </h5>
                         <h5 class="card-title"> <button class="btn btn-success">{{date('F j, Y', strtotime($product->created_at))}}  </button></h5>
                         <h5 class="card-title"><button class="btn btn-primary">{{date('F j, Y', strtotime($product->updated_at))}} </button></h5>
