@@ -10,10 +10,44 @@ class ProductController extends Controller
 {
     //function to view the product
 
-    public function view()
+    public function view(Request $request)
     {
-        $products = Product::with('category')->paginate(5);
-        $data = compact('products');
+        $search = $request['search'] ?? "";
+        $sortBy = $request['sort_by'] ?? "newest";
+        // echo "<pre>";
+        // print_r($search);
+        // die;
+        if($search != "")
+        {
+            $products = Product::where('name','LIKE',"%$search%");
+        }
+        else
+        {
+            $products = Product::with('category');
+        }
+
+        switch ($sortBy) {
+            case 'price_low_high':
+                $products->orderBy('price');
+                break;
+    
+            case 'price_high_low':
+                $products->orderBy('price', 'desc');
+                break;
+    
+            case 'name':
+                $products->orderBy('name');
+                break;
+    
+            case 'newest':
+            default:
+                $products->orderBy('created_at', 'desc');
+                break;
+        }
+
+        $products = $products->paginate(10);
+
+        $data = compact('products','search','sortBy');
         return view('products')->with($data);
 
     }

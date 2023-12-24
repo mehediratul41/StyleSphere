@@ -1,20 +1,31 @@
-{{-- 
-      <td>{{$product->product_id}}</td>
-      <td>{{$product->name}}</td>
-      <td>{{$product->description}}</td>
-      <td>{{$product->price}}</td> 
-      <td>{{$product->category_id}}</td>
-      <td>{{$product->image_url}}</td>
-      <td>{{$product->stock_quantity}}</td> 
-      <td>{{$product->created_at}}</td>
-      <td>{{$product->updated_at}}</td> --}}
 
-      @extends('layouts.main')
-      @push('title')
-          <title>Products</title>
-      @endpush
-      @section('main_section')
-      
+@extends('layouts.main')
+@push('title')
+    <title>Products</title>
+@endpush
+@section('main_section')
+
+      {{-- search product by name --}}
+    <div class="row">
+        <div class="col-12">
+            <form action="">
+                <input type="search" name="search" class="form-control" value="{{$search}}" placeholder="Search By product name">
+                <button type="submit" class="btn btn-outline-success">Search</button>
+            </form>
+            <a href="{{url('/products')}}"><button class="btn btn-outline-danger">Reset</button></a>
+            <form action="">
+                <label for="sort_by">Sort by:</label>
+                <select name="sort_by" id="sort_by">
+                    <option value="newest" {{ $sortBy == 'newest' ? 'selected' : '' }}>Newest first</option>
+                    <option value="price_low_high" {{ $sortBy == 'price_low_high' ? 'selected' : '' }}>Price Low to High</option>
+                    <option value="price_high_low" {{ $sortBy == 'price_high_low' ? 'selected' : '' }}>Price High to Low</option>
+                    <option value="name" {{ $sortBy == 'name' ? 'selected' : '' }}>Name</option>
+                </select>
+                <button type="submit" class="btn btn-outline-primary">Sort</button>
+            </form>
+        </div>
+    </div>
+
           @foreach ($products as $product)
               <div class="card-group">
                   <div class="card m-3 p-3" style="width: 18rem;">
