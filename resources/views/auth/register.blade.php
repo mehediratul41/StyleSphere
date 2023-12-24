@@ -47,7 +47,7 @@
                             </div>
                             <div class="form-group mb-3">
                                 <div class="checkbox">
-                                    <label><input type="checkbox" name="remember"> Remember Me</label>
+                                    <label><input type="checkbox" name="remember"> Remember Me & Log in</label>
                                 </div>
                             </div>
                             <div class="d-grid mx-auto">

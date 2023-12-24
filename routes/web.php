@@ -34,6 +34,10 @@ Route::get('/test/{name}',[ProductController::class,'test']);
 
 //Users Routes
 Route::get('/users',[UserController::class,'view']);
+Route::get('/user/view_profile',[UserController::class,'view_profile']);
+Route::get('/user/edit_profile',[UserController::class,'edit_profile']);
+
+
 
 //Categories Routes
 Route::get('/categories',[CategoryController::class,'view']);

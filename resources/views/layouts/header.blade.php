@@ -59,16 +59,27 @@
                       </div>
                       </li>
                       <li class="nav-item dropdown">
+                        @if(session()->has('user_id'))
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Profile
+                          {{session('name')}}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="{{url('/users')}}">view</a></li>
-                          <li><a class="dropdown-item" href="{{url('/home')}}">Edit</a></li>
+                          <li><a class="dropdown-item" href="{{url('/user/view_profile')}}">View Profile</a></li>
+                          <li><a class="dropdown-item" href="{{url('/user/edit_profile')}}">Edit Profile</a></li>
                           <li><a class="dropdown-item" href="#">Orders</a></li>
                           <li><hr class="dropdown-divider"></li>
                           <li><a class="dropdown-item" href="{{url('/logout')}}">Logout</a></li>
                         </ul>
+                        @else
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Guest
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="{{url('/login')}}">Log In</a></li>
+                          <li><a class="dropdown-item" href="{{url('/register')}}">Register</a></li>
+                        </ul>
+                        @endif
+
                       </li>
                     </ul>
                     <form class="d-flex">

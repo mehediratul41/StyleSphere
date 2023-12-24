@@ -41,10 +41,17 @@ class CustomAuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+
+            //User Session Files -> Storing specific user details in the session
+            $user = Auth::user();
+            $request->session()->put('user_id', $user->user_id);
+            $request->session()->put('name', $user->name);
+            $request->session()->put('email', $user->email);
+
             return redirect()->intended('/home');
         }
 
-        // Authentication failed, redirecting back with an error message
+        // If the Authentication failed, redirecting back with an error message
 
         return redirect()->back()->withInput($request->only('email', 'remember'))->withErrors([
             'email' => 'Invalid email or password',
@@ -86,6 +93,11 @@ class CustomAuthController extends Controller
         {
             $request->session()->regenerate();
             Auth::login($user);
+            //User Session Files -> Storing specific user details in the session
+            $user = Auth::user();
+            $request->session()->put('user_id', $user->user_id);
+            $request->session()->put('name', $user->name);
+            $request->session()->put('email', $user->email);
         }
 
         return redirect("home");

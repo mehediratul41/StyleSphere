@@ -15,6 +15,14 @@ class UserController extends Controller
         $data = compact('users');
         return view('user')->with($data);
     }
+    public function view_profile()
+    {
+        return view('user.view_profile');
+    }
+    public function edit_profile()
+    {
+        return view('user.edit_profile');
+    }
     ///Function for the user role
     public function view_user_role()
     {
