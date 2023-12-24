@@ -63,11 +63,11 @@
                           Profile
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="#">view</a></li>
-                          <li><a class="dropdown-item" href="#">Edit</a></li>
+                          <li><a class="dropdown-item" href="{{url('/users')}}">view</a></li>
+                          <li><a class="dropdown-item" href="{{url('/home')}}">Edit</a></li>
                           <li><a class="dropdown-item" href="#">Orders</a></li>
                           <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#">Logout</a></li>
+                          <li><a class="dropdown-item" href="{{url('/logout')}}">Logout</a></li>
                         </ul>
                       </li>
                     </ul>

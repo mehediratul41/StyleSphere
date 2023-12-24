@@ -10,11 +10,14 @@ use Illuminate\Support\Facades\Auth;
 
 class CustomAuthController extends Controller
 {
+    //Function to open the custom login Form
+
     public function login()
     {
         return view('auth.login');
     }
 
+    //Function to start a login session without rember me
 
     public function customLogin(Request $request)
     {
@@ -23,27 +26,38 @@ class CustomAuthController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-        $remember = $request->has('remember');
+
+
+        //-------------------------Todo : Remember me token er kaj bakii-------------------------------------------------------
+
+        // $email = $request->input('email'); 
+        // $password = $request->input('password');
+        // $remember = $request->has('remember');
         // $data = compact('credentials','remember');
         // echo "<pre>";
         // print_r($data);
         // die;
-        if (Auth::attempt($credentials, $remember)) {
+
+
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/home');
         }
 
         // Authentication failed, redirecting back with an error message
+
         return redirect()->back()->withInput($request->only('email', 'remember'))->withErrors([
             'email' => 'Invalid email or password',
         ]);
     }
 
+    //Function for User registration form
 
     public function register()
     {
         return view('auth.register');
     }
+    //Function for the user Regirstration 
     public function customRegistration(Request $request)
     {
         $request->validate([
@@ -65,24 +79,31 @@ class CustomAuthController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();
-        return redirect("users");
-    }
-    public function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password'])
-        ]);
-    }
-    public function dashboard()
-    {
-        if (Auth::check()) {
-            return view('auth.dashboard');
+
+        //If user checked in the Remember me button the user will be logged in
+        $remember = $request->has('remember');
+        if($remember)
+        {
+            Auth::login($user);
         }
-        return redirect("login")->withSuccess('You are not allowed to access');
+
+        return redirect("home");
     }
-    public function signOut()
+
+    //Create function --- This is another way to register which require protected fillable field in the User model
+
+    // public function create(array $data)
+    // {
+    //     return User::create([
+    //         'name' => $data['name'],
+    //         'email' => $data['email'],
+    //         'password' => Hash::make($data['password'])
+    //     ]);
+    // }
+
+    //Function for user logout
+
+    public function logOut()
     {
         Session::flush();
         Auth::logout();

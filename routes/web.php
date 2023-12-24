@@ -66,12 +66,11 @@ Route::get('/user_roles',[UserController::class,'view_user_role']);
 
 
 //Custom Authentication Controller
-Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
 Route::get('login', [CustomAuthController::class, 'login'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
 Route::get('register', [CustomAuthController::class, 'register'])->name('register');
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
-Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+Route::get('logout', [CustomAuthController::class, 'logOut'])->name('logout');
 
 
 //The testing routes are here
