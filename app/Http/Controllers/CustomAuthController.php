@@ -84,6 +84,7 @@ class CustomAuthController extends Controller
         $remember = $request->has('remember');
         if($remember)
         {
+            $request->session()->regenerate();
             Auth::login($user);
         }
 
