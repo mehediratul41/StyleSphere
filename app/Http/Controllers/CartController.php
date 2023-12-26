@@ -1,0 +1,59 @@
+<?php
+
+namespace App\Http\Controllers;
+use App\Models\Cart;
+use App\Models\Cart_item;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+
+class CartController extends Controller
+{
+    //function for viewing the cart items
+    public function view()
+    {
+        $user_id = request()->session()->get('user_id');
+        $cart = Cart::where('user_id','=',$user_id)->first();
+        // $cart_itemsInCart = $cart ? $cart->cart_items : null;
+        if($cart != null){
+            $cart_itemsInCart = $cart->cart_items ;
+            $data = compact('cart','cart_itemsInCart');
+            return view('cart')->with($data);
+        }
+        else
+        {
+            $cart = null ;
+            $data = compact('cart');
+            return view('cart')->with($data);
+        }
+        // echo "<pre>";
+        // print_r($cart_itemsInCart);
+        // die;
+        // dd($cart);
+
+
+    }
+    //Adding products to the cart
+    public function add_product($id)
+    {
+
+        $user_id = request()->session()->get('user_id');
+        if($user_id != null)
+        {
+        $user_cart = Cart::firstOrCreate(['user_id' => $user_id]);
+        Cart_item::create([
+            'cart_id' => $user_cart['cart_id'],
+            'product_id' => $id,                 
+        ]);
+       }
+       else
+       {
+        return view('auth.login');
+       }
+        // $item = Cart_item::where('user_id','=',$user_id);
+        // echo "<pre>";
+        // print_r($user_cart);
+        // die;
+        // dd($request);
+        return Redirect::back();
+    }
+}

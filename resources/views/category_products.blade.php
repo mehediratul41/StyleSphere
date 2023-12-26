@@ -18,7 +18,7 @@
       <h5 class="card-title"> <button class="btn btn-success">{{date('F j, Y', strtotime($product->created_at))}}  </button></h5>
       <h5 class="card-title"><button class="btn btn-primary">{{date('F j, Y', strtotime($product->updated_at))}} </button></h5>
       <p class="card-title">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="{{url('/products')}}" class="btn btn-primary">Add to Cart</a>
+      <a href="{{url('/cart/add_product')}}/{{$product->product_id}}" class="btn btn-primary">Add to Cart</a>
     </div>
 
     @endforeach

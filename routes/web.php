@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderItemController;
 use App\Http\Controllers\AddressController;
@@ -38,7 +39,6 @@ Route::get('/user/view_profile',[UserController::class,'view_profile']);
 Route::get('/user/edit_profile',[UserController::class,'edit_profile']);
 
 
-
 //Categories Routes
 Route::get('/categories',[CategoryController::class,'view']);
 Route::get('/categories/{name}',[CategoryController::class,'category_products']);
@@ -46,6 +46,12 @@ Route::get('/categories/{name}',[CategoryController::class,'category_products'])
 //Products Routes
 Route::get('/products',[ProductController::class,'view']);
 Route::get('/products/{id}',[ProductController::class,'view_product']);
+
+//Cart Routes
+
+Route::get('/cart',[CartController::class,'view']);
+Route::get('/cart/add_product/{id}',[CartController::class,'add_product']);
+
 
 //Orders Route
 
