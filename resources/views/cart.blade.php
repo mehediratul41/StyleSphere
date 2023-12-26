@@ -41,6 +41,7 @@
             </tbody>
 
         </table>
+        <a href="{{url('/cart/checkout')}}" class="btn btn-primary">Proced to Checkout</a>
     </div>
     
 </div>

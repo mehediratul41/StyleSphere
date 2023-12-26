@@ -51,11 +51,13 @@ Route::get('/products/{id}',[ProductController::class,'view_product']);
 
 Route::get('/cart',[CartController::class,'view']);
 Route::get('/cart/add_product/{id}',[CartController::class,'add_product']);
+Route::get('/cart/checkout',[CartController::class,'checkout']);
 
 
 //Orders Route
-
 Route::get('/orders',[OrderController::class,'view']);
+Route::post('/orders/place_order',[CartController::class,'place_order'])->name('place_order');
+
 
 //OrderItemRoute
 
