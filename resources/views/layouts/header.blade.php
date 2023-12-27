@@ -66,7 +66,7 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <li><a class="dropdown-item" href="{{url('/user/view_profile')}}">View Profile</a></li>
                           <li><a class="dropdown-item" href="{{url('/user/edit_profile')}}">Edit Profile</a></li>
-                          <li><a class="dropdown-item" href="#">Orders</a></li>
+                          <li><a class="dropdown-item" href="{{url('/orders/summary')}}">Orders</a></li>
                           <li><hr class="dropdown-divider"></li>
                           <li><a class="dropdown-item" href="{{url('/logout')}}">Logout</a></li>
                         </ul>

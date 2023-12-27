@@ -57,6 +57,7 @@ Route::get('/cart/checkout',[CartController::class,'checkout']);
 //Orders Route
 Route::get('/orders',[OrderController::class,'view']);
 Route::post('/orders/place_order',[CartController::class,'place_order'])->name('place_order');
+Route::get('/orders/summary', [OrderController::class,'order_summary'])->name('order.summary');
 
 
 //OrderItemRoute
