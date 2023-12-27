@@ -37,6 +37,8 @@ Route::get('/test/{name}',[ProductController::class,'test']);
 Route::get('/users',[UserController::class,'view']);
 Route::get('/user/view_profile',[UserController::class,'view_profile']);
 Route::get('/user/edit_profile',[UserController::class,'edit_profile']);
+Route::put('/user/update/{id}',[UserController::class,'update_profile']);
+
 
 
 //Categories Routes
