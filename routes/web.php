@@ -10,6 +10,8 @@ use App\Http\Controllers\AddressController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CustomAuthController;
 
+use App\Http\Middleware\EnsureLogIn;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -51,7 +53,7 @@ Route::get('/products/{id}',[ProductController::class,'view_product']);
 
 //Cart Routes
 
-Route::get('/cart',[CartController::class,'view']);
+Route::get('/cart',[CartController::class,'view'])->middleware('login');
 Route::get('/cart/add_product/{id}',[CartController::class,'add_product']);
 Route::get('/cart/checkout',[CartController::class,'checkout']);
 
