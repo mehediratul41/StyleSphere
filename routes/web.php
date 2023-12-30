@@ -82,10 +82,10 @@ Route::get('/user_roles',[UserController::class,'view_user_role']);
 
 
 //Custom Authentication Controller
-Route::get('login', [CustomAuthController::class, 'login'])->name('login');
-Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
-Route::get('register', [CustomAuthController::class, 'register'])->name('register');
-Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
+Route::get('login', [CustomAuthController::class, 'login'])->name('login')->middleware('notlogin');
+Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom')->middleware('notlogin');
+Route::get('register', [CustomAuthController::class, 'register'])->name('register')->middleware('notlogin');
+Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom')->middleware('notlogin');
 Route::get('logout', [CustomAuthController::class, 'logOut'])->name('logout')->middleware('login');
 
 
