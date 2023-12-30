@@ -21,8 +21,25 @@ class OrderController extends Controller
     public function order_summary()
     {
         $user_id = request()->session()->get('user_id');
-        $orders = Order::where('user_id','=',$user_id)->first();
-        $order_items = $orders->order_items;
+        $orders = Order::where('user_id','=',$user_id)->where('status','=','pending')->get();
+        // dd($orders);
+        foreach ($orders as $order) {
+            // Load the related order_items for each order
+            $order->load('order_items');
+        
+            // Access the order_items for the current order
+            $orderItems = $order->order_items;
+
+            $allOrderItems[] = $orderItems;
+        
+            // Do something with $orderItems
+            // dd($orderItems);
+            // echo "<pre>";
+            // print_r($orderItems);
+        }
+        // dd($allOrderItems);
+        // $order_items = $orders->order_items;
+        // dd($order_items);
         // $product_name =$order_items->product;
         // dd($product_name);
         
@@ -31,7 +48,7 @@ class OrderController extends Controller
 
         // }
         // dd($order_items,$orders);
-        $data = compact('orders','order_items');
+        $data = compact('orders','allOrderItems');
         // dd($orders);
         return view('order_summary')->with($data);
     }

@@ -6,6 +6,7 @@
 <div class="container">
     <h1>Order Details</h1>
     @if($orders)
+    @foreach ($orders as $order)
     <table class="table">
         <thead>
             <tr>
@@ -17,15 +18,22 @@
         <tbody>
 
             <tr>
-                <td scope="row">{{$orders->order_id}}</td>
-                <td>{{$orders->total_amount}}</td>
-                <td>{{$orders->status}}</td>
-            </tr>
-            
+                <td scope="row">{{$order->order_id}}</td>
+                <td>{{$order->total_amount}}</td>
+                <td>{{$order->status}}</td>
+            </tr>           
         </tbody>
     </table>
-    @endif
-    <h1>Order Items</h1>
+    {{-- <h1>Order Items</h1>
+    {{ $loop->iteration }}
+    {{$allOrderItems[0]}} --}}
+    {{-- @php
+        $i = 0;
+        echo "$allOrderItems[0]->order_id";
+        $i++;
+    @endphp --}}
+    @endforeach
+    {{-- <h1>Order Items</h1>
     <div class="table-responsive">
         <table class="table table-striped table-hover table-borderless table-primary align-middle">
             <thead class="table-light">
@@ -36,7 +44,7 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                @foreach($order_items as $item)
+                @foreach($allOrdersItems as $item)
                 <tr
                     class="table-primary">
                     <td scope="row">{{$item->product_id}}</td>
@@ -45,11 +53,13 @@
                 </tr>
                 @endforeach
             </tbody>
-            <tfoot>
-                
+            <tfoot>                
             </tfoot>
         </table>
-    </div>
+    </div> --}}
+    @endif
+    
+
     
 </div>
 @endsection

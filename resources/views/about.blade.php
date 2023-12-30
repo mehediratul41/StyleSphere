@@ -19,9 +19,11 @@
         <p>User Name: {{ session('name') }}</p>
         <p>User Email: {{ session('email') }}</p>
         <!-- Add more user details as needed -->
+
     @else
         <p>No user details available.</p>
     @endif
+    
 </h1>
 
 @endsection
