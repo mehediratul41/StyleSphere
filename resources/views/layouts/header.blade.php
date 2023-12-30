@@ -17,14 +17,15 @@
             crossorigin="anonymous"
         />
         <link rel="icon" type="image/x-icon" href="https://cdn.dribbble.com/users/10665462/screenshots/19180199/media/3b016bed6a9bf02d810bff6555abd6dc.png">
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     </head>
 
     <body>
-        <div class="container">
+        <div class="container header-container">
         <header>
             <!-- place navbar here -->
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+                <div class="container">
                   <a class="navbar-brand" href="{{url('/home')}}">
                     <img src="https://img.freepik.com/free-vector/hand-drawn-clothing-store-logo-design_23-2149577874.jpg?w=1380&t=st=1702983489~exp=1702984089~hmac=5fdf25a5ce6e48b1349fedc834e635537a398d1755ae3cd98ad00931c800b4bc" class="w-50 h-50" alt="StyleSphere">
                 </a>
