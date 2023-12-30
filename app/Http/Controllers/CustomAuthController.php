@@ -14,14 +14,24 @@ class CustomAuthController extends Controller
 
     public function login()
     {
-        return view('auth.login');
+        if(!Auth::check()){
+            return view('auth.login');
+        }
+        elseif(Auth::check())
+        {
+            return redirect('home');
+        }
+
     }
 
     //Function to start a login session without rember me
 
     public function customLogin(Request $request)
     {
-
+        if(Auth::check())
+        {
+            return redirect('home');
+        }
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
