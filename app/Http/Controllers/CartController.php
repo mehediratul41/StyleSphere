@@ -127,14 +127,14 @@ class CartController extends Controller
 
             ]);
             // dd($address->address_id);
-            // $addressId = (int)$address->address_id;
+            $addressId = (int)$address->address_id;
             $order = Order::firstOrCreate([
                 'user_id' => $user_id,
                 'total_amount' => $totalPrice,
-                'shipping_address_id' => $address->address_id,
+                'shipping_address_id' => $addressId,
 
             ]);
-            // dd($order->order_id);
+            $orderId = $order->order_id;
             $cart_id = $cart->cart_id;
             // dd($cart_id);
             if($order != null && $cart != null)
@@ -143,7 +143,7 @@ class CartController extends Controller
                 foreach($productsInCartItem as $item)
                 {
                     Order_item::firstOrCreate([
-                        'order_id' => $order->order_id,
+                        'order_id' => $orderId,
                         'product_id' => $item['product_id'],
                         'quantity' => $item['quantity'],
                         'subtotal' => $item['subtotal']
