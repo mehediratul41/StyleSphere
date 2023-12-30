@@ -10,7 +10,6 @@ use App\Http\Controllers\AddressController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CustomAuthController;
 
-use App\Http\Middleware\EnsureLogIn;
 
 
 use Illuminate\Support\Facades\Route;
@@ -36,10 +35,10 @@ Route::get('/', function () {
 Route::get('/test/{name}',[ProductController::class,'test']);
 
 //Users Routes
-Route::get('/users',[UserController::class,'view']);
-Route::get('/user/view_profile',[UserController::class,'view_profile']);
-Route::get('/user/edit_profile',[UserController::class,'edit_profile']);
-Route::put('/user/update/{id}',[UserController::class,'update_profile']);
+Route::get('/users',[UserController::class,'view'])->middleware('login');
+Route::get('/user/view_profile',[UserController::class,'view_profile'])->middleware('login');
+Route::get('/user/edit_profile',[UserController::class,'edit_profile'])->middleware('login');
+Route::put('/user/update/{id}',[UserController::class,'update_profile'])->middleware('login');
 
 
 
@@ -54,24 +53,24 @@ Route::get('/products/{id}',[ProductController::class,'view_product']);
 //Cart Routes
 
 Route::get('/cart',[CartController::class,'view'])->middleware('login');
-Route::get('/cart/add_product/{id}',[CartController::class,'add_product']);
-Route::get('/cart/checkout',[CartController::class,'checkout']);
+Route::get('/cart/add_product/{id}',[CartController::class,'add_product'])->middleware('login');
+Route::get('/cart/checkout',[CartController::class,'checkout'])->middleware('login');
 
 
 //Orders Route
-Route::get('/orders',[OrderController::class,'view']);
-Route::post('/orders/place_order',[CartController::class,'place_order'])->name('place_order');
-Route::get('/orders/summary', [OrderController::class,'order_summary'])->name('order.summary');
+Route::get('/orders',[OrderController::class,'view'])->middleware('login');
+Route::post('/orders/place_order',[CartController::class,'place_order'])->name('place_order')->middleware('login');
+Route::get('/orders/summary', [OrderController::class,'order_summary'])->name('order.summary')->middleware('login');
 
 
 //OrderItemRoute
 
-Route::get('/order_items',[OrderItemController::class,'view']);
+Route::get('/order_items',[OrderItemController::class,'view'])->middleware('login');
 
 
 //Addresses Route
 
-Route::get('/addresses',[AddressController::class,'view']);
+Route::get('/addresses',[AddressController::class,'view'])->middleware('login');
 
 //Review Route
 
@@ -87,7 +86,7 @@ Route::get('login', [CustomAuthController::class, 'login'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
 Route::get('register', [CustomAuthController::class, 'register'])->name('register');
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
-Route::get('logout', [CustomAuthController::class, 'logOut'])->name('logout');
+Route::get('logout', [CustomAuthController::class, 'logOut'])->name('logout')->middleware('login');
 
 
 //The testing routes are here

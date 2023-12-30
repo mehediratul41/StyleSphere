@@ -14,13 +14,8 @@ class CustomAuthController extends Controller
 
     public function login()
     {
-        if(!Auth::check()){
-            return view('auth.login');
-        }
-        elseif(Auth::check())
-        {
-            return redirect('home');
-        }
+  
+        return view('auth.login');
 
     }
 
@@ -28,10 +23,7 @@ class CustomAuthController extends Controller
 
     public function customLogin(Request $request)
     {
-        if(Auth::check())
-        {
-            return redirect('home');
-        }
+
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],

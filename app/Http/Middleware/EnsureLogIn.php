@@ -22,12 +22,11 @@ class EnsureLogIn
         // return redirect()->back();
         // $ses = Auth::check();
         // dd($ses);
-        
         if(!Auth::check())
         {
             // return view('auth.login');
             // return redirect()->route('login');
-            return $next($request);
+            return redirect('/login');
         } 
         // dd(Auth::user());
         // $user_id = request()->session()->get('user_id');
