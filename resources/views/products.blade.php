@@ -4,16 +4,19 @@
     <title>Products</title>
 @endpush
 @section('main_section')
-
+<div class="products">
       {{-- search product by name --}}
-    <div class="row">
-        <div class="col-12">
-            <form action="">
+    <div class="search_sort">
+      <div class="search">
+            <form action="" class="search_form">
                 <input type="search" name="search" class="form-control" value="{{$search}}" placeholder="Search By product name">
                 <button type="submit" class="btn btn-outline-success">Search</button>
             </form>
-            <a href="{{url('/products')}}"><button class="btn btn-outline-danger">Reset</button></a>
+            <span class="reset_button"><a href="{{url('/products')}}"><button class="btn btn-outline-danger ">Reset</button></a></span>
+        </div>
+
             <form action="">
+                <div class="sort">
                 <label for="sort_by">Sort by:</label>
                 <select name="sort_by" id="sort_by">
                     <option value="newest" {{ $sortBy == 'newest' ? 'selected' : '' }}>Newest first</option>
@@ -22,29 +25,29 @@
                     <option value="name" {{ $sortBy == 'name' ? 'selected' : '' }}>Name</option>
                 </select>
                 <button type="submit" class="btn btn-outline-primary">Sort</button>
+                </div>
             </form>
-        </div>
+
     </div>
         {{-- <livewire:products :products="$products" /> --}}
+        <div class="each_product">
           @foreach ($products as $product)
-              <div class="card-group">
-                  <div class="card m-3 p-3" style="width: 18rem;">
-                      <img src="{{$product->image_url}}" class="card-img-top w-50 h-50" alt="{{$product->name}}">
-                      <div class="card-body">
-                        <h5 class="card-title">{{$product->name}} </h5>
-                        <h5> Price : <button class="btn btn-success">BDT: {{$product->price}}</button></h5>
-                        <a href="{{url('/categories')}}/{{$product->category->name }}"><h5>Category : <button class="btn btn-primary">{{$product->category->name}}</button> </h5></a>
-                        <h5>Stock Quantity : <button class="btn btn-danger">{{$product->stock_quantity}}</button> </h5>
-                        <h5 class="card-title"> <button class="btn btn-success">{{date('F j, Y', strtotime($product->created_at))}}  </button></h5>
-                        <h5 class="card-title"><button class="btn btn-primary">{{date('F j, Y', strtotime($product->updated_at))}} </button></h5>
-                        <p class="card-title">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="{{url('/cart/add_product')}}/{{$product->product_id}}" class="btn btn-primary">Add to Cart</a>
+                  <div class=" card_product_item">
+                      <img src="{{$product->image_url}}" class="card_item_img" alt="{{$product->name}}">
+                      <div class="card_product_body">
+                        <h5 class="card_product_title">{{$product->name}} </h5>
+                        <h5> Price : <i class="fa-solid fa-bangladeshi-taka-sign"></i> {{$product->price}}</h5>
+                        <a href="{{url('/cart/add_product')}}/{{$product->product_id}}" class="btn btn-outline-success">Add to Cart</a>
+                        <a href="{{url('/products')}}/{{$product->product_id}}" class="btn btn-outline-primary">View Product</a>
                       </div>
                   </div>
-              </div>
+              
           @endforeach
-          <div class="row">
-            {{$products->links()}}
-          </div>
-      
-      @endsection
+      </div>
+      <div class="container">
+        {{$products->links()}}
+      </div>
+
+         
+</div>   
+ @endsection

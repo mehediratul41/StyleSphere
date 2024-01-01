@@ -45,7 +45,7 @@ class ProductController extends Controller
                 break;
         }
 
-        $products = $products->paginate(10);
+        $products = $products->paginate(16);
 
         $data = compact('products','search','sortBy');
         return view('products')->with($data);
