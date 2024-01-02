@@ -456,3 +456,45 @@ h1.about_page_title {
     margin-top: 2rem;
 }
 /*---------------------------------------------Cart Page  End --------------------------------------------------*/
+
+/*--------------------------------------------------Checkout Page Start-----------------------------------------*/
+.checkout_container {
+    padding: 4rem 10rem;
+    height: 100%;
+    width: 100%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+.checkout_header {
+    padding: 2rem 0rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #188acd;
+}
+.price_header {
+    margin-right: 10rem;
+}
+.address_header {
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 4rem 0rem 2rem 0rem;
+    color: #188acd;
+}
+.checkout_form_field {
+    padding-bottom: 1rem;
+}
+.checkout_form_field > label {
+    padding-bottom: 0.5rem;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+/* .address {
+    border-radius: 7px;
+    box-shadow: 1px 1px 1px 1px rgba(33, 33, 33, 0.2);
+} */
+.button.btn.btn-primary.order_button :hover {
+    background: black !important;
+    color: white !important;
+}
+/*--------------------------------------------------Checkout Page End-------------------------------------------*/
