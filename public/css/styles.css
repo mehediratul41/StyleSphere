@@ -346,8 +346,8 @@ h1.about_page_title {
     width: 250px;
 }
 .view_user_details {
-    height: 60%;
-    width: 60%;
+    /* height: 60%;
+    width: 60%; */
     padding: 4% 1%;
     background: white;
     border-radius: 10px;
@@ -356,6 +356,7 @@ h1.about_page_title {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    flex-basis: 60%;
 }
 .edit_profile_anchor {
     width: 40%;
@@ -365,3 +366,49 @@ h1.about_page_title {
     font-weight: 600;
 }
 /*-------------------------------------------View Profile End----------------------------------------*/
+
+/*--------------------------------------------Edit Profile Start---------------------------------------*/
+.edit_profile {
+    height: 100%;
+    width: 100%;
+    padding: 4rem;
+    /* background: gray; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.edit_profile_info > p {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 7px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.edit_profile_details {
+    padding: 2rem;
+    flex-basis: 60%;
+    /* background: #188acd; */
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px rgba(33, 33, 33, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* color: white; */
+}
+.edit_profile_form {
+    display: flex;
+    flex-basis: 90%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.edit_profile_form > label {
+    font-weight: 500;
+    padding-bottom: 7%;
+    text-transform: uppercase;
+}
+/*--------------------------------------------Edit Profile End-----------------------------------------*/
