@@ -5,11 +5,11 @@
 @section('main_section')
 <main class="signup-form">
 
-    <div class="cotainer">
+    <div class="cotainer register_form">
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card">
-                    <h3 class="card-header text-center">Register User</h3>
+                    <h3 class="card-header text-center register_header ">Sign Up</h3>
                     <div class="card-body">
                         <form action="{{ route('register.custom') }}" method="POST">
                             @csrf
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                             <div class="d-grid mx-auto">
-                                <button type="submit" class="btn btn-dark btn-block">Sign up</button>
+                                <button type="submit" class="btn btn-dark btn-block register_button">Sign up</button>
                             </div>
                         </form>
                     </div>

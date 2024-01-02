@@ -4,16 +4,16 @@
 @endpush
 @section('main_section')
 <main class="login-form">
-    <div class="cotainer">
+    <div class="cotainer login_form">
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card">
-                    <h3 class="card-header text-center">Login</h3>
+                    <h3 class="card-header text-center login_header">Log In</h3>
                     <div class="card-body">
                         <form method="POST" action="{{ route('login.custom') }}">
                             @csrf
                             <div class="form-group mb-3">
-                                <label for="email">Enter you Email : </label>
+                                <label for="email">Enter your Email : </label>
                                 <input type="Email" placeholder="Email" id="email" class="form-control" name="email" value="{{old('email')}}"
                                     required autofocus>
                                 @if ($errors->has('email'))
@@ -37,7 +37,7 @@
                                 </div>
                             </div> --}}
                             <div class="d-grid mx-auto">
-                                <button type="submit" class="btn btn-dark btn-block">Signin</button>
+                                <button type="submit" class="btn btn-dark btn-block signin_button ">Sign In</button>
                             </div>
                         </form>
                     </div>

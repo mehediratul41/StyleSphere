@@ -300,3 +300,32 @@ h1.about_page_title {
     font-size: 2rem;
 }
 /*----------------------------------------About Page End-----------------------------------------*/
+/*----------------------------------------Log In Form Start -------------------------------------*/
+.login_form {
+    padding: 4rem;
+}
+.login_header {
+    color: #188acd;
+}
+.signin_button {
+    background: #188acd;
+}
+.signin_button :hover {
+    background: black;
+}
+/*----------------------------------------Log In Form End----------------------------------------*/
+
+/*----------------------------------------Register Form------------------------------------------*/
+.register_form {
+    padding: 4rem;
+}
+.register_header {
+    color: #188acd;
+}
+.register_button {
+    background: #188acd;
+}
+.register_button :hover {
+    background: black;
+}
+/*----------------------------------------Register Form End--------------------------------------*/
