@@ -3,24 +3,24 @@
 @endpush
 @extends('layouts.main')
 @section('main_section')
-<div class="container">
-    <h1>Order Details</h1>
+<div class="order_details">
+    <h1 class="order_details_header">Order Details</h1>
     @if($orders)
     @foreach ($orders as $order)
-    <table class="table">
+    <table class="table table-bordered order_details_table">
         <thead>
-            <tr>
-                <th>Order Id</th>
-                <th>Total Amount</th>
-                <th>Status</th>
+            <tr >
+                <th class="text-center">Order Id</th>
+                <th class="text-center">Total Amount</th>
+                <th class="text-center">Status</th>
             </tr>
         </thead>
         <tbody>
 
-            <tr>
-                <td scope="row">{{$order->order_id}}</td>
-                <td>{{$order->total_amount}}</td>
-                <td>{{$order->status}}</td>
+            <tr >
+                <td class="text-center" scope="row">{{$order->order_id}}</td>
+                <td class="text-center">{{$order->total_amount}}</td>
+                <td class="text-center" style="color: {{ $order->status === 'pending' ? 'red' : 'green' }}">{{$order->status}}</td>
             </tr>           
         </tbody>
     </table>
