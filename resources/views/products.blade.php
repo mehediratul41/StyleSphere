@@ -44,7 +44,7 @@
               
           @endforeach
       </div>
-      <div class="container">
+      <div class="paginate_links">
         {{$products->links()}}
       </div>
 

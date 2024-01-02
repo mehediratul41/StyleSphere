@@ -3,18 +3,19 @@
     <title>Categories</title>
 @endpush
 @section('main_section')
-
+<h1 class="category_header">PRODUCT CATEGORIES</h1>
+<div class="category_container">
     @foreach ($categories as $category)
-        <div class="card-group">
-            <div class="card m-5 p-5" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="{{$category->name}}">
-                <div class="card-body">
-                  <h5 class="card-title">{{$category->name}} </h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="{{url('/categories')}}/{{$category->name}}" class="btn btn-primary">{{$category->name}}</a>
+    
+            <div class="category_card_body">
+                <img src="https://www.gentlepark.com/sbp-admin/upload/campaign/da67f8ea6.jpg" class="category_card_img" alt="{{$category->name}}">
+                <div class="category_card_body">
+                  <h3 class="category_card_title">{{$category->name}}  Collection</h3>
+                  <p class="category_card_description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="{{url('/categories')}}/{{$category->name}}" class="btn btn-outline-primary">View {{$category->name}} Products</a>
                 </div>
             </div>
-        </div>
-    @endforeach
 
+    @endforeach
+</div>
 @endsection
