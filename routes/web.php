@@ -9,27 +9,13 @@ use App\Http\Controllers\OrderItemController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CustomAuthController;
-
-
+use App\Http\Controllers\HomeController;
 
 use Illuminate\Support\Facades\Route;
 
 
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/',[HomeController::class,'view'] );
 
 //Testing Route
 Route::get('/test/{name}',[ProductController::class,'test']);
@@ -89,12 +75,10 @@ Route::post('custom-registration', [CustomAuthController::class, 'customRegistra
 Route::get('logout', [CustomAuthController::class, 'logOut'])->name('logout')->middleware('login');
 
 
-//The testing routes are here
-
-Route::get('/home', function () {
-    return view('home');
-});
 
 Route::get('/about', function () {
     return view('about');
+});
+Route::get('/home', function () {
+    return view('home');
 });

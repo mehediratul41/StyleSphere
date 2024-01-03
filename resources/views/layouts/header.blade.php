@@ -27,7 +27,7 @@
             <!-- place navbar here -->
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="navbarr container">
-                  <a class="navbar-brand" href="{{url('/home')}}">
+                  <a class="navbar-brand" href="{{url('/')}}">
                     <img src="{{asset('assets/logo.png')}}" class="brand-logo" alt="StyleSphere">
                 </a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,7 @@
                   <div class="collapse navbar-collapse navLinks nav_items " id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{{url('/home')}}">HOME</a>
+                        <a class="nav-link " aria-current="page" href="{{url('/')}}">HOME</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link " aria-current="page" href="{{url('/products')}}">PRODUCTS</a>
