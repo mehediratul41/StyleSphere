@@ -5,21 +5,23 @@
 @endpush
 
 @section('main_section')
-    <h2 class="text-center">{{ $category->name }} Collection</h2>
-
+    <h1 class="text-center category_products_header">{{ $category->name }} Collections</h1>
+<div class="category_products_container">
     @foreach ($category->products as $product)
-
-    <img src="{{$product->image_url}}" class="card-img-top w-50 h-50" alt="{{$product->name}}">
-    <div class="card-body m-3 p-3">
-      <h5 class="card-title">{{$product->name}} </h5>
-      <h5> Price : <button class="btn btn-success">BDT: {{$product->price}}</button></h5>
-      <h5>Category : <button class="btn btn-primary">{{$category->name}}</button> </h5>
-      <h5>Stock Quantity : <button class="btn btn-danger">{{$product->stock_quantity}}</button> </h5>
-      <h5 class="card-title"> <button class="btn btn-success">{{date('F j, Y', strtotime($product->created_at))}}  </button></h5>
-      <h5 class="card-title"><button class="btn btn-primary">{{date('F j, Y', strtotime($product->updated_at))}} </button></h5>
-      <p class="card-title">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="{{url('/cart/add_product')}}/{{$product->product_id}}" class="btn btn-primary">Add to Cart</a>
+    <div class="category_products_card">
+      <div class="category_products_img_div">
+        <img src="{{$product->image_url}}" class="category_products_img" alt="{{$product->name}}">
+      </div>
+      <div class="card-body category_products_card_body">
+        <h4>{{$product->name}} </h4>
+        <h4> Price : <i class="fa-solid fa-bangladeshi-taka-sign"></i> {{$product->price}}</h4>
+        <a href="{{url('/cart/add_product')}}/{{$product->product_id}}" class="btn btn-outline-success category_products_button">Add to Cart</a>
+        <a href="{{url('/products')}}/{{$product->product_id}}" class="btn btn-outline-primary category_products_button">View Product</a>
+      </div>
     </div>
-
     @endforeach
+  </div>
+  <div class="paginate_links">
+    {{$productsInCategory->links()}}
+  </div>
 @endsection

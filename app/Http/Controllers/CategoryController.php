@@ -19,11 +19,10 @@ class CategoryController extends Controller
     {
 
 
-        // Retrieve a category (replace 1 with the actual category ID)
         $category = Category::where('name',$name)->first();
-        $productsInCategory = $category->products;
+        $productsInCategory = $category->products()->paginate(12);
 
-        // Retrieve all products from the same category
+        // Retrieving all products from the same category
         // $productsInCategory = $category->products;
         $data = compact('productsInCategory', 'category');
         // echo "<pre>" ;
