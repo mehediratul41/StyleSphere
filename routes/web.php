@@ -84,3 +84,5 @@ Route::get('/home', [HomeController::class,'view']);
 
 Route::get('/admin_panel',[AdminController::class,'view']);
 Route::get('/admin_panel/products',[AdminController::class,'products']);
+Route::get('/admin_panel/categories',[AdminController::class,'categories']);
+Route::get('/admin_panel/users',[AdminController::class,'users']);
