@@ -16,7 +16,7 @@ class AdminController extends Controller
     //function for admin panel view
     public function view()
     {
-        return view('admin.admin');
+        return view('admin.layouts.admin_home');
     }
     //funtion for all products view
     public function products()
@@ -54,5 +54,12 @@ class AdminController extends Controller
         $addresses = Address::all();
         $data = compact('addresses');
         return view('admin.addresses')->with($data);
+    }
+    //function for all cart view
+    public function carts()
+    {
+        $carts = Cart::all();
+        $data = compact('carts');
+        return view('admin.carts')->with($data);
     }
 }

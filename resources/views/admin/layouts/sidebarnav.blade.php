@@ -1,12 +1,12 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{url('/admin_panel')}}">
           <i class="mdi mdi-home menu-icon"></i>
           <span class="menu-title">Dashboard</span>
         </a>
       </li>
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <i class="mdi mdi-circle-outline menu-icon"></i>
           <span class="menu-title">UI Elements</span>
@@ -18,29 +18,41 @@
             <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
           </ul>
         </div>
-      </li>
+      </li> --}}
       <li class="nav-item">
-        <a class="nav-link" href="pages/forms/basic_elements.html">
-          <i class="mdi mdi-view-headline menu-icon"></i>
-          <span class="menu-title">Form elements</span>
+        <a class="nav-link" href="{{url('/admin_panel/products')}}">
+          <i class="fa-brands fa-product-hunt menu-icon"></i>
+          <span class="menu-title">Products</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pages/charts/chartjs.html">
-          <i class="mdi mdi-chart-pie menu-icon"></i>
-          <span class="menu-title">Charts</span>
+        <a class="nav-link" href="{{url('/admin_panel/categories')}}">
+          <i class="fa-solid fa-list menu-icon"></i>
+          <span class="menu-title">Categories</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pages/tables/basic-table.html">
-          <i class="mdi mdi-grid-large menu-icon"></i>
-          <span class="menu-title">Tables</span>
+        <a class="nav-link" href="{{url('/admin_panel/users')}}">
+          <i class="fa-solid fa-users menu-icon"></i>
+          <span class="menu-title">Users</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pages/icons/mdi.html">
-          <i class="mdi mdi-emoticon menu-icon"></i>
-          <span class="menu-title">Icons</span>
+        <a class="nav-link" href="{{url('/admin_panel/orders')}}">
+          <i class="mdi mdi-tshirt-crew menu-icon"></i>
+          <span class="menu-title">Orders</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url('/admin_panel/carts')}}">
+          <i class="fa-solid fa-cart-shopping menu-icon"></i>
+          <span class="menu-title">Carts</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url('/admin_panel/addresses')}}">
+          <i class="fa-solid fa-address-card menu-icon"></i>
+          <span class="menu-title">Addresses</span>
         </a>
       </li>
       <li class="nav-item">
@@ -58,12 +70,6 @@
             <li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.html"> Lockscreen </a></li>
           </ul>
         </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="documentation/documentation.html">
-          <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-          <span class="menu-title">Documentation</span>
-        </a>
       </li>
     </ul>
   </nav>
