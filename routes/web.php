@@ -86,3 +86,5 @@ Route::get('/admin_panel',[AdminController::class,'view']);
 Route::get('/admin_panel/products',[AdminController::class,'products']);
 Route::get('/admin_panel/categories',[AdminController::class,'categories']);
 Route::get('/admin_panel/users',[AdminController::class,'users']);
+Route::get('/admin_panel/orders',[AdminController::class,'orders']);
+Route::get('/admin_panel/addresses',[AdminController::class,'addresses']);

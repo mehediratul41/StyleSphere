@@ -41,4 +41,18 @@ class AdminController extends Controller
         $data = compact('users');
         return view('admin.users')->with($data);
     }
+    //function for all orders view
+    public function orders()
+    {
+        $orders = Order::all();
+        $data = compact('orders');
+        return view('admin.orders')->with($data);
+    }
+    //function for all addresses view
+    public function addresses()
+    {
+        $addresses = Address::all();
+        $data = compact('addresses');
+        return view('admin.addresses')->with($data);
+    }
 }
