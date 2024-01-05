@@ -166,4 +166,51 @@ class AdminController extends Controller
         }
         return redirect()->back();
     }
+    //function for adding category view
+    public function add_category()
+    {
+        return view('admin.add_category');
+    }
+    //function for adding New Categories post 
+    public function add_category_post(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:100',
+        ]);
+        $category =Category::create([
+            'name' => $request->name
+        ]);
+        // $category->name = $request->name;
+        // $category->save();
+        return redirect('admin_panel/categories');
+    }
+    //function for edit category
+    public function edit_category($id)
+    {
+        // dd($id);
+        $category = Category::find($id);
+        // dd($product);
+        $data = compact('category');
+        return view('admin.edit_category')->with($data);
+    }
+    //function for update_category 
+    public function update_category($id, Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:100',
+        ]);
+        $category = Category::find($id);
+        $category->name = $request->name;
+        $category->update();
+        return redirect('admin_panel/categories');
+    }
+    //function for deleting category
+    public function delete_category($id)
+    {
+        $category = Category::find($id);
+        if(!is_null($category)){
+            $category->delete();
+        }
+        return redirect()->back();
+    }
 }

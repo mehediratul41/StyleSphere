@@ -92,6 +92,12 @@ Route::put('/admin_panel/products/update-product/{id}',[AdminController::class,'
 Route::delete('/admin_panel/products/delete-product/{id}',[AdminController::class,'delete_product']);
 
 Route::get('/admin_panel/categories',[AdminController::class,'categories']);
+Route::get('/admin_panel/categories/add-category',[AdminController::class,'add_category']);
+Route::post('/admin_panel/categories/add-category',[AdminController::class,'add_category_post']);
+Route::get('/admin_panel/categories/edit-category/{id}',[AdminController::class,'edit_category']);
+Route::put('/admin_panel/categories/update-category/{id}',[AdminController::class,'update_category']);
+Route::delete('/admin_panel/categories/delete-category/{id}',[AdminController::class,'delete_category']);
+
 Route::get('/admin_panel/users',[AdminController::class,'users']);
 Route::get('/admin_panel/orders',[AdminController::class,'orders']);
 Route::get('/admin_panel/carts',[AdminController::class,'carts']);

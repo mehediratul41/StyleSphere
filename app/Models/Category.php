@@ -12,7 +12,8 @@ class Category extends Model
     use HasFactory;
     protected $table = "categories";
     protected $primaryKey = "category_id";
-
+    protected $fillable = ['name'];
+    public $timestamps = false;
     // public function products()
     // {
     //     return $this->hasMany(Product::class);
@@ -21,7 +22,7 @@ class Category extends Model
     {
         return $this->hasMany(Product::class,'category_id', 'category_id');
     }
-
+    
 
 
 }
