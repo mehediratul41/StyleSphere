@@ -62,4 +62,26 @@ class AdminController extends Controller
         $data = compact('carts');
         return view('admin.carts')->with($data);
     }
+    //function for viewing the admin profile
+    public function view_profile()
+    {
+        return view('admin.view_profile');
+    }
+    //function for editing the admin profile
+    public function edit_profile()
+    {
+        return view('admin.edit_profile');
+    }
+    //Function for Update the user profile
+    public function update_profile($id, Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+        ]);
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->update();
+        $request->session()->put('name', $user->name);
+        return redirect()->back();
+    }
 }

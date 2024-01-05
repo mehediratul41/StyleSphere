@@ -89,3 +89,6 @@ Route::get('/admin_panel/users',[AdminController::class,'users']);
 Route::get('/admin_panel/orders',[AdminController::class,'orders']);
 Route::get('/admin_panel/carts',[AdminController::class,'carts']);
 Route::get('/admin_panel/addresses',[AdminController::class,'addresses']);
+Route::get('/admin_panel/view_profile',[AdminController::class,'view_profile']);
+Route::get('/admin_panel/edit_profile',[AdminController::class,'edit_profile']);
+Route::put('/admin_panel/update/{id}',[AdminController::class,'update_profile']);

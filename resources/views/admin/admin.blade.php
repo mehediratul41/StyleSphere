@@ -15,6 +15,7 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="{{asset('admin/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('admin/css/style2.css')}}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{asset('assets/logo.png')}}" />
   <!------------------font awesome------------------------------>
