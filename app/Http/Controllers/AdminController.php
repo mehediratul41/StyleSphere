@@ -213,4 +213,14 @@ class AdminController extends Controller
         }
         return redirect()->back();
     }
+    // //function for deleting user
+    // public function delete_user($id)
+    // {
+    //     $user = User::find($id);
+    //     if(!is_null($user))
+    //     {
+    //         $user->delete();
+    //     }
+    //     return redirect()->back();
+    // }
 }

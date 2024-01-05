@@ -82,6 +82,8 @@ Route::get('/about', function () {
 });
 Route::get('/home', [HomeController::class,'view']);
 
+//---------------------------------------------------Routes for admin panel--------------------------
+
 Route::get('/admin_panel',[AdminController::class,'view']);
 
 Route::get('/admin_panel/products',[AdminController::class,'products']);
@@ -99,6 +101,8 @@ Route::put('/admin_panel/categories/update-category/{id}',[AdminController::clas
 Route::delete('/admin_panel/categories/delete-category/{id}',[AdminController::class,'delete_category']);
 
 Route::get('/admin_panel/users',[AdminController::class,'users']);
+// Route::delete('/admin_panel/users/delete-user/{id}',[AdminController::class,'delete_user']);
+
 Route::get('/admin_panel/orders',[AdminController::class,'orders']);
 Route::get('/admin_panel/carts',[AdminController::class,'carts']);
 Route::get('/admin_panel/addresses',[AdminController::class,'addresses']);

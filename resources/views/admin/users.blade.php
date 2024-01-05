@@ -31,7 +31,7 @@
                     @endif
                     <td>{{$user->created_at}}</td>
                     <td>{{$user->updated_at}}</td>
-                    <td><a href="#" class="btn btn-primary">Edit</a> <a href="#" class="btn btn-danger">Delete</a></td>
+                    <td><a href="#" class="btn btn-primary">View Profile</a> </td>
                 </tr>
                 @endforeach
               </tbody>
