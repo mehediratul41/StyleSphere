@@ -32,7 +32,13 @@
                     <td>{{$product->stock_quantity}}</td>
                     <td>{{$product->created_at}}</td>
                     <td>{{$product->updated_at}}</td>
-                    <td><a href="#" class="btn btn-primary">Edit</a> <a href="#" class="btn btn-danger">Delete</a></td>
+                    <td><a href="{{url('admin_panel/products/edit-product')}}/{{$product->product_id}}" > <button class="btn btn-primary">Edit</button></a> 
+                      <form action="{{ url('admin_panel/products/delete-product', $product->product_id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this product?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                      </form>
+                      </td>
                 </tr>
                 @endforeach
               </tbody>

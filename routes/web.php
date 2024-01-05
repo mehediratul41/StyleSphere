@@ -87,6 +87,9 @@ Route::get('/admin_panel',[AdminController::class,'view']);
 Route::get('/admin_panel/products',[AdminController::class,'products']);
 Route::get('/admin_panel/products/add-product',[AdminController::class,'add_product']);
 Route::post('/admin_panel/products/add-product',[AdminController::class,'add_product_post']);
+Route::get('/admin_panel/products/edit-product/{id}',[AdminController::class,'edit_product']);
+Route::put('/admin_panel/products/update-product/{id}',[AdminController::class,'update_product']);
+Route::delete('/admin_panel/products/delete-product/{id}',[AdminController::class,'delete_product']);
 
 Route::get('/admin_panel/categories',[AdminController::class,'categories']);
 Route::get('/admin_panel/users',[AdminController::class,'users']);

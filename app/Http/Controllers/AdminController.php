@@ -112,11 +112,58 @@ class AdminController extends Controller
         $product->image_url = $request->image_url;
         $product->stock_quantity = $request->stock_quantity;
         $product->save();
-        $req = $request->all();
+        // $req = $request->all();
         // echo "<pre>";
         // print_r($req);
         // die;
         // dd($request);
         return redirect('admin_panel/products');
+    }
+    //function for edit product
+    public function edit_product($id)
+    {
+        // dd($id);
+        $product = Product::find($id);
+        // dd($product);
+        $data = compact('product');
+        return view('admin.edit_product')->with($data);
+    }
+    //function for update_product 
+    public function update_product($id, Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'description' => 'required|max:255',
+            'price' => 'required|numeric|max:999999',
+            'category_id'=>'required|numeric|max:4',
+            'image_url' => 'required|url:http,https',
+            'stock_quantity' => 'required|numeric|max:1000',
+        ]);
+        // echo "<pre>";
+        // print_r($request->all());
+        // die;
+        $product = Product::find($id);
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->category_id = $request->category_id;
+        $product->image_url = $request->image_url;
+        $product->stock_quantity = $request->stock_quantity;
+        $product->update();
+        // $req = $request->all();
+        // echo "<pre>";
+        // print_r($req);
+        // die;
+        // dd($request);
+        return redirect('admin_panel/products');
+    }
+    //function for deleting product
+    public function delete_product($id)
+    {
+        $product = Product::find($id);
+        if(!is_null($product)){
+            $product->delete();
+        }
+        return redirect()->back();
     }
 }
