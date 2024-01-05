@@ -10,6 +10,7 @@ use App\Models\Order;
 use App\Models\Order_item;
 use App\Models\Address;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
 {
@@ -83,5 +84,39 @@ class AdminController extends Controller
         $user->update();
         $request->session()->put('name', $user->name);
         return redirect()->back();
+    }
+    //function for add product view the admin profile
+    public function add_product()
+    {
+        return view('admin.add_product');
+    }
+    //function for adding product post 
+    public function add_product_post(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'description' => 'required|max:255',
+            'price' => 'required|numeric|max:999999',
+            'category_id'=>'required|numeric|max:4',
+            'image_url' => 'required|url:http,https',
+            'stock_quantity' => 'required|numeric|max:1000',
+        ]);
+        // echo "<pre>";
+        // print_r($request->all());
+        // die;
+        $product =new Product;
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->category_id = $request->category_id;
+        $product->image_url = $request->image_url;
+        $product->stock_quantity = $request->stock_quantity;
+        $product->save();
+        $req = $request->all();
+        // echo "<pre>";
+        // print_r($req);
+        // die;
+        // dd($request);
+        return redirect('admin_panel/products');
     }
 }

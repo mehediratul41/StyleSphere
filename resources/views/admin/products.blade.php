@@ -5,6 +5,7 @@
       <div class="card">
         <div class="card-body">
           <p class="card-title text-center">All Products Are Here</p>
+          <a href="{{url('admin_panel/products/add-product')}}" class="btn btn-primary text-center text-white">Add New Product</a>
           <div class="table-responsive">
             <table id="recent-purchases-listing" class="table">
               <thead>
