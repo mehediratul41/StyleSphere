@@ -32,8 +32,7 @@
                     @endif
                     <td>{{$order->created_at}}</td>
                     <td>{{$order->updated_at}}</td>
-                    <td><a href="#" class="btn btn-outline-primary">View</a></td>
-                    <td><a href="#" class="btn btn-primary">Edit</a> <a href="#" class="btn btn-danger">Delete</a></td>
+                    <td><a href="{{url('admin_panel/orders/edit-order')}}/{{$order->order_id}}" class="btn btn-outline-primary">Edit Status</a></td>
                 </tr>
                 @endforeach
               </tbody>

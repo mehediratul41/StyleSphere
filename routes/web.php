@@ -84,28 +84,30 @@ Route::get('/home', [HomeController::class,'view']);
 
 //---------------------------------------------------Routes for admin panel--------------------------
 
-Route::get('/admin_panel',[AdminController::class,'view']);
+Route::get('/admin_panel',[AdminController::class,'view'])->middleware('admin');
 
-Route::get('/admin_panel/products',[AdminController::class,'products']);
-Route::get('/admin_panel/products/add-product',[AdminController::class,'add_product']);
-Route::post('/admin_panel/products/add-product',[AdminController::class,'add_product_post']);
-Route::get('/admin_panel/products/edit-product/{id}',[AdminController::class,'edit_product']);
-Route::put('/admin_panel/products/update-product/{id}',[AdminController::class,'update_product']);
-Route::delete('/admin_panel/products/delete-product/{id}',[AdminController::class,'delete_product']);
+Route::get('/admin_panel/products',[AdminController::class,'products'])->middleware('admin');
+Route::get('/admin_panel/products/add-product',[AdminController::class,'add_product'])->middleware('admin');
+Route::post('/admin_panel/products/add-product',[AdminController::class,'add_product_post'])->middleware('admin');
+Route::get('/admin_panel/products/edit-product/{id}',[AdminController::class,'edit_product'])->middleware('admin');
+Route::put('/admin_panel/products/update-product/{id}',[AdminController::class,'update_product'])->middleware('admin');
+Route::delete('/admin_panel/products/delete-product/{id}',[AdminController::class,'delete_product'])->middleware('admin');
 
-Route::get('/admin_panel/categories',[AdminController::class,'categories']);
-Route::get('/admin_panel/categories/add-category',[AdminController::class,'add_category']);
-Route::post('/admin_panel/categories/add-category',[AdminController::class,'add_category_post']);
-Route::get('/admin_panel/categories/edit-category/{id}',[AdminController::class,'edit_category']);
-Route::put('/admin_panel/categories/update-category/{id}',[AdminController::class,'update_category']);
-Route::delete('/admin_panel/categories/delete-category/{id}',[AdminController::class,'delete_category']);
+Route::get('/admin_panel/categories',[AdminController::class,'categories'])->middleware('admin');
+Route::get('/admin_panel/categories/add-category',[AdminController::class,'add_category'])->middleware('admin');
+Route::post('/admin_panel/categories/add-category',[AdminController::class,'add_category_post'])->middleware('admin');
+Route::get('/admin_panel/categories/edit-category/{id}',[AdminController::class,'edit_category'])->middleware('admin');
+Route::put('/admin_panel/categories/update-category/{id}',[AdminController::class,'update_category'])->middleware('admin');
+Route::delete('/admin_panel/categories/delete-category/{id}',[AdminController::class,'delete_category'])->middleware('admin');
 
-Route::get('/admin_panel/users',[AdminController::class,'users']);
+Route::get('/admin_panel/users',[AdminController::class,'users'])->middleware('admin');
 // Route::delete('/admin_panel/users/delete-user/{id}',[AdminController::class,'delete_user']);
 
-Route::get('/admin_panel/orders',[AdminController::class,'orders']);
-Route::get('/admin_panel/carts',[AdminController::class,'carts']);
-Route::get('/admin_panel/addresses',[AdminController::class,'addresses']);
-Route::get('/admin_panel/view_profile',[AdminController::class,'view_profile']);
-Route::get('/admin_panel/edit_profile',[AdminController::class,'edit_profile']);
-Route::put('/admin_panel/update/{id}',[AdminController::class,'update_profile']);
+Route::get('/admin_panel/orders',[AdminController::class,'orders'])->middleware('admin');
+Route::get('/admin_panel/orders/edit-order/{id}',[AdminController::class,'edit_order'])->middleware('admin');
+Route::put('/admin_panel/orders/update-order/{id}',[AdminController::class,'update_order'])->middleware('admin');
+Route::get('/admin_panel/carts',[AdminController::class,'carts'])->middleware('admin');
+Route::get('/admin_panel/addresses',[AdminController::class,'addresses'])->middleware('admin');
+Route::get('/admin_panel/view_profile',[AdminController::class,'view_profile'])->middleware('admin');
+Route::get('/admin_panel/edit_profile',[AdminController::class,'edit_profile'])->middleware('admin');
+Route::put('/admin_panel/update/{id}',[AdminController::class,'update_profile'])->middleware('admin');

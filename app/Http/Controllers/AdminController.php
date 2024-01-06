@@ -223,4 +223,36 @@ class AdminController extends Controller
     //     }
     //     return redirect()->back();
     // }
+
+    //function for edit order
+    public function edit_order($id)
+    {
+        // dd($id);
+        $order = Order::find($id);
+        if(is_null($order))
+        {
+            return redirect()->back();
+        }
+        // dd($product);
+        $data = compact('order');
+        return view('admin.edit_order')->with($data);
+    }
+    //function for update_order
+    public function update_order($id, Request $request)
+    {
+        $request->validate([
+            'status' => 'required|in:pending,processing,shipped,delivered,cancelled', 
+        ]);
+    
+        $order = Order::find($id);
+        if (!$order) {
+            return redirect()->back();
+        }
+    
+        $order->update(['status' => $request->input('status')]);
+        // $order->status = $request->status;
+        // $order->update();
+    
+        return redirect('admin_panel/orders');
+    }
 }
