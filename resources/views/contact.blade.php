@@ -4,3 +4,4 @@
 @endpush
 @section('main_section')
 
+@endsection
