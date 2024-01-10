@@ -3,5 +3,5 @@
     <title>Contact Us</title>
 @endpush
 @section('main_section')
-<i class="fas fa-h1    "></i>
+<h1>Contact Us Page</h1>
 @endsection
