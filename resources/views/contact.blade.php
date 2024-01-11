@@ -3,5 +3,5 @@
     <title>Contact Us</title>
 @endpush
 @section('main_section')
-<h1>Contact Us Page</h1>
+<h1>Contact Us Page e</h1>
 @endsection
